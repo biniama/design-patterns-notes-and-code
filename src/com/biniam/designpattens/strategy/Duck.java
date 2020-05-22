@@ -9,14 +9,6 @@ public abstract class Duck {
 		System.out.println("swimming");
 	}
 
-	public void quack() {
-		System.out.println("quacking");
-	}
-
-	public void fly() {
-		System.out.println("flying");
-	}
-
 	public abstract void display();
 
 }

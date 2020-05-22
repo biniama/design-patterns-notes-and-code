@@ -9,17 +9,17 @@ public class StrategyMain {
 		// 'Duck' is abstract; cannot be instantiated
 		// Duck duck = new Duck();
 
-		Duck mallardDuck = new MallardDuck();
+		MallardDuck mallardDuck = new MallardDuck();
 		mallardDuck.display();
 		mallardDuck.swim();
 		mallardDuck.quack();
 		mallardDuck.fly();
 
-		Duck rubberDuck = new RubberDuck();
+		RubberDuck rubberDuck = new RubberDuck();
 		rubberDuck.display();
 		rubberDuck.swim();
 		rubberDuck.quack();
-		rubberDuck.fly();
-
+		// can't all fly on rubberDuck since it doesn't implement Flyable
+		// rubberDuck.fly();
 	}
 }
