@@ -3,7 +3,7 @@ package com.biniam.designpattens.strategy;
 /**
  * @author Biniam Asnake
  */
-public interface Quackable {
+public interface FlyBehaviour {
 
-	void quack();
+	void fly();
 }

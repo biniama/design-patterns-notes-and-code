@@ -3,16 +3,11 @@ package com.biniam.designpattens.strategy;
 /**
  * @author Biniam Asnake
  */
-public class RedHeadDuck extends Duck implements Quackable, Flyable {
+public class RedHeadDuck extends Duck {
 
-	@Override
-	public void quack() {
-		System.out.println("quacking");
-	}
-
-	@Override
-	public void fly() {
-		System.out.println("flying");
+	public RedHeadDuck() {
+		setQuackBehavior(new Quack());
+		setFlyBehaviour(new FlyWithWings());
 	}
 
 	@Override

@@ -33,7 +33,7 @@ public class Shape {
 ```
 
 
-== Design Pattens
+== Design Patterns
 Design patterns are general solutions to OO problems.
 It is an approach to thinking about software design that incorporate the experience of developers who have had similar problems.
 
@@ -43,12 +43,10 @@ It is an approach to thinking about software design that incorporate the experie
 . Prepare for future additions and change
 
 === Design Principles vs Design Patterns
-Design Principles:: general guidelines on how to develop quality software
-Design Patterns:: specific design solutions often named at solving common OO problems
-
-.Example
-. Design Principle - 'Encapsulate what varies'
-. Design Patterns - The Strategy pattern, the Iterator pattern, the Factory pattern
+Design Principles:: general guidelines on how to develop quality software.
+E.g. 'Encapsulate what varies'
+Design Patterns:: specific design solutions often named at solving common OO problems.
+E.g. The Strategy pattern, the Iterator pattern, the Factory pattern
 
 === Problems with inheritance
 image::images/problems_with_inheritance.png[]
@@ -87,7 +85,27 @@ This principle is fundamental to almost every design pattern.
 image::images/program_to_interfaces.png[]
 
 === Strategy Pattern
+Type:: Behavioural
+Definition:: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This lets the algorithm vary
+independently from clients that use it.
+
+.Strategy pattern class diagram
+image::images/strategy_pattern_class_diagram.png[]
+.Pattern Example - Ducks
 image::images/strategy_pattern_ducks.png[]
+.Pattern Example - Phone Camera App
+image::images/strategy_pattern_phone_camera_app.png[]
+
+
+.favor_composition_over_inheritance
+image::images/favor_composition_over_inheritance.png[]
+
+----
+Design Principle - Favor Composition over Inheritance
+Instead of inheriting behavior, composition delegates the behavior to the composed object.
+Leads to a more flexible and extensible design.
+Allows for changing the behavior during runtime.
+----
 
 
 

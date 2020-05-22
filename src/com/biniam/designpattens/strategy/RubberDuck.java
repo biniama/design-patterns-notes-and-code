@@ -3,11 +3,11 @@ package com.biniam.designpattens.strategy;
 /**
  * @author Biniam Asnake
  */
-public class RubberDuck extends Duck implements Quackable {
+public class RubberDuck extends Duck {
 
-	@Override
-	public void quack() {
-		System.out.println("squeeking");
+	public RubberDuck() {
+		setQuackBehavior(new Squack());
+		setFlyBehaviour(new FlyNoWay());
 	}
 
 	@Override
