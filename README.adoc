@@ -56,6 +56,7 @@ image::images/problems_with_inheritance.png[]
 . It is hard to get the whole knowledge about ducks by looking at the super class
 . Changes can lead to unintended side effects
 . All behaviour is assigned at compile time. Hence, runtime behaviour change is difficult
+. Inheritance is powerful but it can lead to inflexible and fragile designs.
 
 === Interfaces for the rescue?
 . An interface defines the methods an object must have inorder to be considered a particular type
@@ -107,7 +108,81 @@ Leads to a more flexible and extensible design.
 Allows for changing the behavior during runtime.
 ----
 
+=== Adapter Pattern
+Type:: Structural
+Definition:: The Adapter Pattern converts the interface of a class into another interface clients expect. It allows classes to work together that couldn't
+otherwise because of incompatible interfaces.
 
+.Definition
+image::images/adapter_pattern.png[]
+.Class Diagram
+image::images/adapter_pattern_class_diagram.png[]
+.Example
+image::images/adapter_pattern_example.png[]
+
+.Adapters use Composition
+. The client is composed with the adapter class, and the Adapter is composed with the adaptee.
+. The adapter sits between the client and the adaptee.
+. The adapter delegates calls to the adaptee, and returns any needed value.
+. The advantage of the Adapter Pattern is you can add an adapter easily without having to modify the adaptee at all, and only modify the client to add the
+adapter.
+. Useful when working with Vendor classes which we can't modify.
+
+----
+Design Principle - Loose Coupling
+The observer pattern exemplifies the design principle of loose coupling.
+Loosly coupled objects are objects that interact but donot know much about each other.
+Helps us to minimize complexity of a scenario.
+----
+image::images/loose_coupling.png[]
+
+. The Subject/Publisher owns the copy of the data which makes the design cleaner than many objects owning the data.
+. The Dependents/Subscribers/Observers gets notified when the data changes in the Subject/Publisher.
+
+=== Observer pattern
+Type:: Behavioral
+Definition:: This pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and
+updated automatically.
+
+.Class Diagram
+image::images/observer_pattern_class_diagram.png[]
+.Publisher and Subscribers
+image::images/observer_pattern_publisher_subscribers.png[]
+
+----
+Design Principle - The Open-Closed Principle
+Classes should be open for extension but closed for modification.
+Ensures flexibility and maintainability because we can add new behavior without the risk of introducing bug in the existing code.
+----
+
+=== Decorator Pattern
+Type::
+Definition:: This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for
+extending functionality.
+
+.Class Diagram
+image::images/decorator_pattern.png[]
+.Example
+image::images/decorator_pattern_example.png[]
+.How it works
+image::images/decorator_pattern_how_it_works.png[]
+
+Decorator pattern uses Composition in a different way than Strategy pattern.
+
+.Inheritance Advantages
+. Powerful, but it can lead to inflexible designs
+. All classes inherit the same behavior
+
+.Composition Advantages
+. We can still 'inherit' behavior by composing objects
+. We can make dynamic runtime decisions
+. We can add new behavior without altering existing code
+. We can include behaviors not considered by the creator
+. The end result often proves fewer bugs and side effects, and flexible designs.
+
+By using composition, we get *flexibility* in how we add _capabilities_ (e.g. condiments) to our _components_ (e.g. beverages).
+By using inheritance (a common beverage super type), we get the type structure we need to treat sub classes as the super class (treat coffees and decorated
+coffees both as beverages. So, we can decorate beverages multiple times and call get description and cost on basic coffees or decorated coffees.
 
 
 === Memento pattern
