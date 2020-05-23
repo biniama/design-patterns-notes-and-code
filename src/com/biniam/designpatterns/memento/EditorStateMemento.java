@@ -1,4 +1,4 @@
-package com.biniam.designpattens.memento;
+package com.biniam.designpatterns.memento;
 
 public class EditorStateMemento {
 	// make it robust by labeling it as final

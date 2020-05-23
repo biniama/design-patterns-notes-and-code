@@ -1,4 +1,4 @@
-package com.biniam.designpattens.strategy;
+package com.biniam.designpatterns.strategy;
 
 /**
  * @author Biniam Asnake

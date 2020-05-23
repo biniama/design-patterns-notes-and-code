@@ -1,12 +1,12 @@
-package com.biniam.designpattens.strategy;
+package com.biniam.designpatterns.strategy;
 
 /**
  * @author Biniam Asnake
  */
-public class DecoyDuck extends Duck {
+public class RubberDuck extends Duck {
 
-	public DecoyDuck() {
-		setQuackBehavior(new Mute());
+	public RubberDuck() {
+		setQuackBehavior(new Squack());
 		setFlyBehaviour(new FlyNoWay());
 	}
 

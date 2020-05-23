@@ -1,4 +1,4 @@
-package com.biniam.designpattens.memento;
+package com.biniam.designpatterns.memento;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.biniam.designpattens.memento;
+package com.biniam.designpatterns.memento;
 
 /**
  * Memento Pattern according to Mosh
