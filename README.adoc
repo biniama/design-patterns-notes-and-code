@@ -1,6 +1,7 @@
 = Design Patterns
 Biniam Asnake
 1.0.0
+:icons: font
 
 == Object Oriented Programming Concepts
 Interface:: a contract that specifies the functionalities/capabilities a class should provide
@@ -14,24 +15,36 @@ UML: Unified Modelling Language - official language to model our system to repre
 ----
 
 .Types of Relationships
-. Inheritance relationship (line with an unfilled rectangle)
-`public class Rectangle extends Shape {}`
-. Composition relationship (arrow with a diamond)
-```
+- Inheritance relationship (line with an unfilled rectangle)
+[source] public class Rectangle extends Shape {}
+- Composition relationship (arrow with a filled diamond)
+
+[source]
+----
 public class Shape {
     //  Shape class is composed of a Size class
     private Size size;
 }
-```
-. Aggregation relationship (?)
-. Dependency relationship (dashed arrow)
-```
+----
+- Aggregation relationship (arrow with an empty diamond)
+- Dependency relationship (dashed arrow)
+[source]
+----
 public class Shape {
     // Shape class depends on the Document class
     public void render(Document doc) {}
 }
-```
+----
 
+[NOTE]
+====
+.Aggergation vs Composition
+- Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Parent
+Class and the Students still exist.
+- Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don't exist
+separate to a House.
+Source: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/
+====
 
 == Design Patterns
 Design patterns are general solutions to OO problems.
@@ -41,6 +54,11 @@ It is an approach to thinking about software design that incorporate the experie
 . Not reinventing the wheel
 . Building resilient code that can withstand change
 . Prepare for future additions and change
+. Serves as shared vocabularies
+.. Patterns allow you to say more with less
+.. Talking at the pattern level allows you to stay 'in the design' longer
+.. Shared vocabularies can turbo-charge your development team - go faster and less misunderstanding
+.. Shared vocabularies encourage more junior developers to get up to speed.
 
 === Design Principles vs Design Patterns
 Design Principles:: general guidelines on how to develop quality software.
@@ -84,6 +102,13 @@ This principle is fundamental to almost every design pattern.
 ----
 
 image::images/program_to_interfaces.png[]
+
+----
+Design Principle - Program to an interface, not an implementation
+Clients remain unaware of the specific types of objects they use, as long as the objects adhere to the interface that clients expect.
+e.g.
+    [source] Duck duck = new MallardDuck();
+----
 
 === Strategy Pattern
 Type:: Behavioural
@@ -156,7 +181,7 @@ Ensures flexibility and maintainability because we can add new behavior without 
 ----
 
 === Decorator Pattern
-Type::
+Type:: Structural
 Definition:: This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for
 extending functionality.
 
@@ -184,6 +209,97 @@ By using composition, we get *flexibility* in how we add _capabilities_ (e.g. co
 By using inheritance (a common beverage super type), we get the type structure we need to treat sub classes as the super class (treat coffees and decorated
 coffees both as beverages. So, we can decorate beverages multiple times and call get description and cost on basic coffees or decorated coffees.
 
+=== Iterator Pattern
+Type:: Behavioural
+Definition:: This pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+
+.Class Diagram
+image::images/iterator_pattern_class_diagram.png[]
+.Example
+image::images/iterator_pattern_example.png[]
+
+Aggregate objects collect Objects. E.g. Arrays, Java Collection classes like ArrayList, List, Set, Map, Dictionary
+
+.To iterate over an aggregate object using the Iterator pattern
+. Ask the object for its iterator
+. Use the iterator to iterate through the items in the aggregate.
+. Iteration code now works with any kind of aggregate object.
+
+.Using built-in iterators
+- Java offers a built-in iterator interface, Java.util.iterator.
+- The java.util.iterator interface acts both as an interface that your own iterator classes can implement as well as the type of the Java collection classes built-in iterators.
+- Classes like ArrayList, Vector and LinkedList all have an iterator method that returns a ready built iterator with a type java.util.iterator.
+- Java arrays *don't* have built-in iterators.
+
+.Built-in iterators in languages and used in statements while hiding the Iterator pattern and make it easy
+- Java's *enhanced for* statement - used for Collections and arrays
+[source, java]
+----
+    for (Animal a: animals) {
+        a.makeSound()
+    }
+----
+
+- Python's *for/in* statement - used for string, list and tuple
+[source]
+----
+    for i in range(1,10):
+        print(i)
+----
+
+- JavaScript's *for/of* statement - used in string, array, map, set
+[source]
+----
+    for (let value of aggregate) {
+        console.log(value)
+    }
+----
+
+----
+Design Principle - Single Responsibility Principle (SRP)
+Definition:: A class should have only one reason to change.
+Example:: Think of a restaurant. Every person has a specific role. The waiter is responsible for taking orders only. They don't cook for you.
+Imagine a restaurant where the waiter takes your order, cooks for you, goes shopping and does the taxes. This is unmanageable.
+
+Adhering to this principle minimizes the chances that a class is going to need to change in the future.
+
+One thing to remember about giving responsibilities to a class, is that for every additional responsibility, a class has another reason it might have to change in the future. So by giving a class multiple responsibilities we give the class more than one reason it might have to change.
+----
+
+=== Factory Method Pattern
+Type:: Creational
+Definition:: The Factory Method pattern defines an interface for creating an object, but lets subsclasses decide which class to instantiate. Factory Method
+lets a class *defer instantiation to subclasses*.
+
+==== Simple Factory Pattern
+.Class Diagram
+image::images/simple_factory_pattern_class_diagram.png[]
+.Simple Factory Pattern Example
+image::images/simple_factory_pattern_example.png[]
+.Simple Factory Pattern Code Example
+image::images/simple_factory_pattern_code_example.png[]
+When we see code like the above, we know that if requirements change, and we want to add new duck types, we're going to have to open up this code and change it
+and that violates the open closed principle.
+We might also end up writing this same code in several places in this application, making the situation even worse.
+
+
+Simple Factory pattern allows us to *decouple* the process of creating objects from the clients that use those objects.
+
+==== Factory Method
+.Example
+image::images/factory_method_pattern_example.png[]
+
+=== Applying patterns
+* Design patterns can be powerful.
+* Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
+Once you've found a pattern that appears to be a good match, make sure it has a set of consequences you can live with and study its effects on the rest of your design.
+Use patterns when you have a practical need to support change in a design today.
+* KISS
+** Remember, always solve things in the simplest way you can. Other developers will appreciate and admire the simplicity of your design.
+* Design principles and patterns give us some useful tools that help us create software that is truly more flexible and resilient to change.
+* Refactoring time is pattern time.
+* If you don't need to use a pattern now, don't use it now.
+
 
 === Memento pattern
 Type:: Behavioural
@@ -192,10 +308,3 @@ Purpose:: Without violating encapsulation, capture and externalise an object's i
 image::images/memento_pattern.png[]
 .Pattern Example
 image::images/memento_pattern_example.png[]
-
-== S.O.L.I.D Principles
-=== SRP - Single Responsibility Principle
-Definition:: a class should only change for one reason only
-Example:: Think of a restaurant. Every person has a specific role. The waiter is responsible for taking orders only. They don't cook for you.
-Imagine a restaurant where the waiter takes your order, cooks for you, goes shopping and does the taxes. This is unmanageable.
-

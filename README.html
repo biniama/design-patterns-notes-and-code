@@ -436,6 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
@@ -478,17 +479,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <pre>UML: Unified Modelling Language - official language to model our system to represent classes and their relationships.</pre>
 </div>
 </div>
-<div class="olist arabic">
+<div class="ulist">
 <div class="title">Types of Relationships</div>
-<ol class="arabic">
+<ul>
 <li>
 <p>Inheritance relationship (line with an unfilled rectangle)
-<code>public class Rectangle extends Shape {}</code></p>
+[source] public class Rectangle extends Shape {}</p>
 </li>
 <li>
-<p>Composition relationship (arrow with a diamond)</p>
+<p>Composition relationship (arrow with a filled diamond)</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -498,23 +499,47 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 }</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Aggregation relationship (?)</p>
+<p>Aggregation relationship (arrow with an empty diamond)</p>
 </li>
 <li>
 <p>Dependency relationship (dashed arrow)</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>public class Shape {
+<pre>public class Shape {
     // Shape class depends on the Document class
     public void render(Document doc) {}
-}</code></pre>
+}</pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Aggergation vs Composition</div>
+<ul>
+<li>
+<p>Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Parent
+Class and the Students still exist.</p>
+</li>
+<li>
+<p>Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&#8217;t exist
+separate to a House.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -536,6 +561,25 @@ It is an approach to thinking about software design that incorporate the experie
 </li>
 <li>
 <p>Prepare for future additions and change</p>
+</li>
+<li>
+<p>Serves as shared vocabularies</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Patterns allow you to say more with less</p>
+</li>
+<li>
+<p>Talking at the pattern level allows you to stay 'in the design' longer</p>
+</li>
+<li>
+<p>Shared vocabularies can turbo-charge your development team - go faster and less misunderstanding</p>
+</li>
+<li>
+<p>Shared vocabularies encourage more junior developers to get up to speed.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div>
@@ -579,6 +623,9 @@ E.g. The Strategy pattern, the Iterator pattern, the Factory pattern</p>
 </li>
 <li>
 <p>All behaviour is assigned at compile time. Hence, runtime behaviour change is difficult</p>
+</li>
+<li>
+<p>Inheritance is powerful but it can lead to inflexible and fragile designs.</p>
 </li>
 </ol>
 </div>
@@ -641,6 +688,14 @@ This principle is fundamental to almost every design pattern.</pre>
 <img src="images/program_to_interfaces.png" alt="program to interfaces">
 </div>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>Design Principle - Program to an interface, not an implementation
+Clients remain unaware of the specific types of objects they use, as long as the objects adhere to the interface that clients expect.
+e.g.
+    [source] Duck duck = new MallardDuck();</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_strategy_pattern">Strategy Pattern</h3>
@@ -691,6 +746,395 @@ Allows for changing the behavior during runtime.</pre>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_adapter_pattern">Adapter Pattern</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Type</dt>
+<dd>
+<p>Structural</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>The Adapter Pattern converts the interface of a class into another interface clients expect. It allows classes to work together that couldn&#8217;t
+otherwise because of incompatible interfaces.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/adapter_pattern.png" alt="adapter pattern">
+</div>
+<div class="title">Figure 5. Definition</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/adapter_pattern_class_diagram.png" alt="adapter pattern class diagram">
+</div>
+<div class="title">Figure 6. Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/adapter_pattern_example.png" alt="adapter pattern example">
+</div>
+<div class="title">Figure 7. Example</div>
+</div>
+<div class="olist arabic">
+<div class="title">Adapters use Composition</div>
+<ol class="arabic">
+<li>
+<p>The client is composed with the adapter class, and the Adapter is composed with the adaptee.</p>
+</li>
+<li>
+<p>The adapter sits between the client and the adaptee.</p>
+</li>
+<li>
+<p>The adapter delegates calls to the adaptee, and returns any needed value.</p>
+</li>
+<li>
+<p>The advantage of the Adapter Pattern is you can add an adapter easily without having to modify the adaptee at all, and only modify the client to add the
+adapter.</p>
+</li>
+<li>
+<p>Useful when working with Vendor classes which we can&#8217;t modify.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Design Principle - Loose Coupling
+The observer pattern exemplifies the design principle of loose coupling.
+Loosly coupled objects are objects that interact but donot know much about each other.
+Helps us to minimize complexity of a scenario.</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loose_coupling.png" alt="loose coupling">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Subject/Publisher owns the copy of the data which makes the design cleaner than many objects owning the data.</p>
+</li>
+<li>
+<p>The Dependents/Subscribers/Observers gets notified when the data changes in the Subject/Publisher.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_observer_pattern">Observer pattern</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Type</dt>
+<dd>
+<p>Behavioral</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>This pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and
+updated automatically.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/observer_pattern_class_diagram.png" alt="observer pattern class diagram">
+</div>
+<div class="title">Figure 8. Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/observer_pattern_publisher_subscribers.png" alt="observer pattern publisher subscribers">
+</div>
+<div class="title">Figure 9. Publisher and Subscribers</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Design Principle - The Open-Closed Principle
+Classes should be open for extension but closed for modification.
+Ensures flexibility and maintainability because we can add new behavior without the risk of introducing bug in the existing code.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decorator_pattern">Decorator Pattern</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Type</dt>
+<dd>
+<p>Structural</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for
+extending functionality.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/decorator_pattern.png" alt="decorator pattern">
+</div>
+<div class="title">Figure 10. Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/decorator_pattern_example.png" alt="decorator pattern example">
+</div>
+<div class="title">Figure 11. Example</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/decorator_pattern_how_it_works.png" alt="decorator pattern how it works">
+</div>
+<div class="title">Figure 12. How it works</div>
+</div>
+<div class="paragraph">
+<p>Decorator pattern uses Composition in a different way than Strategy pattern.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Inheritance Advantages</div>
+<ol class="arabic">
+<li>
+<p>Powerful, but it can lead to inflexible designs</p>
+</li>
+<li>
+<p>All classes inherit the same behavior</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Composition Advantages</div>
+<ol class="arabic">
+<li>
+<p>We can still 'inherit' behavior by composing objects</p>
+</li>
+<li>
+<p>We can make dynamic runtime decisions</p>
+</li>
+<li>
+<p>We can add new behavior without altering existing code</p>
+</li>
+<li>
+<p>We can include behaviors not considered by the creator</p>
+</li>
+<li>
+<p>The end result often proves fewer bugs and side effects, and flexible designs.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By using composition, we get <strong>flexibility</strong> in how we add <em>capabilities</em> (e.g. condiments) to our <em>components</em> (e.g. beverages).
+By using inheritance (a common beverage super type), we get the type structure we need to treat sub classes as the super class (treat coffees and decorated
+coffees both as beverages. So, we can decorate beverages multiple times and call get description and cost on basic coffees or decorated coffees.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iterator_pattern">Iterator Pattern</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Type</dt>
+<dd>
+<p>Behavioural</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>This pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/iterator_pattern_class_diagram.png" alt="iterator pattern class diagram">
+</div>
+<div class="title">Figure 13. Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/iterator_pattern_example.png" alt="iterator pattern example">
+</div>
+<div class="title">Figure 14. Example</div>
+</div>
+<div class="paragraph">
+<p>Aggregate objects collect Objects. E.g. Arrays, Java Collection classes like ArrayList, List, Set, Map, Dictionary</p>
+</div>
+<div class="olist arabic">
+<div class="title">To iterate over an aggregate object using the Iterator pattern</div>
+<ol class="arabic">
+<li>
+<p>Ask the object for its iterator</p>
+</li>
+<li>
+<p>Use the iterator to iterate through the items in the aggregate.</p>
+</li>
+<li>
+<p>Iteration code now works with any kind of aggregate object.</p>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Using built-in iterators</div>
+<ul>
+<li>
+<p>Java offers a built-in iterator interface, Java.util.iterator.</p>
+</li>
+<li>
+<p>The java.util.iterator interface acts both as an interface that your own iterator classes can implement as well as the type of the Java collection classes built-in iterators.</p>
+</li>
+<li>
+<p>Classes like ArrayList, Vector and LinkedList all have an iterator method that returns a ready built iterator with a type java.util.iterator.</p>
+</li>
+<li>
+<p>Java arrays <strong>don&#8217;t</strong> have built-in iterators.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Built-in iterators in languages and used in statements while hiding the Iterator pattern and make it easy</div>
+<ul>
+<li>
+<p>Java&#8217;s <strong>enhanced for</strong> statement - used for Collections and arrays</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    for (Animal a: animals) {
+        a.makeSound()
+    }</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Python&#8217;s <strong>for/in</strong> statement - used for string, list and tuple</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    for i in range(1,10):
+        print(i)</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JavaScript&#8217;s <strong>for/of</strong> statement - used in string, array, map, set</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    for (let value of aggregate) {
+        console.log(value)
+    }</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Design Principle - Single Responsibility Principle (SRP)
+Definition:: A class should have only one reason to change.
+Example:: Think of a restaurant. Every person has a specific role. The waiter is responsible for taking orders only. They don't cook for you.
+Imagine a restaurant where the waiter takes your order, cooks for you, goes shopping and does the taxes. This is unmanageable.
+
+Adhering to this principle minimizes the chances that a class is going to need to change in the future.
+
+One thing to remember about giving responsibilities to a class, is that for every additional responsibility, a class has another reason it might have to change in the future. So by giving a class multiple responsibilities we give the class more than one reason it might have to change.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_factory_method_pattern">Factory Method Pattern</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Type</dt>
+<dd>
+<p>Creational</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>The Factory Method pattern defines an interface for creating an object, but lets subsclasses decide which class to instantiate. Factory Method
+lets a class <strong>defer instantiation to subclasses</strong>.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_simple_factory_pattern">Simple Factory Pattern</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/simple_factory_pattern_class_diagram.png" alt="simple factory pattern class diagram">
+</div>
+<div class="title">Figure 15. Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/simple_factory_pattern_example.png" alt="simple factory pattern example">
+</div>
+<div class="title">Figure 16. Simple Factory Pattern Example</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/simple_factory_pattern_code_example.png" alt="simple factory pattern code example">
+</div>
+<div class="title">Figure 17. Simple Factory Pattern Code Example</div>
+</div>
+<div class="paragraph">
+<p>When we see code like the above, we know that if requirements change, and we want to add new duck types, we&#8217;re going to have to open up this code and change it
+and that violates the open closed principle.
+We might also end up writing this same code in several places in this application, making the situation even worse.</p>
+</div>
+<div class="paragraph">
+<p>Simple Factory pattern allows us to <strong>decouple</strong> the process of creating objects from the clients that use those objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_factory_method">Factory Method</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/factory_method_pattern_example.png" alt="factory method pattern example">
+</div>
+<div class="title">Figure 18. Example</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_applying_patterns">Applying patterns</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Design patterns can be powerful.</p>
+</li>
+<li>
+<p>Don&#8217;t think of patterns as a magic bullet. Patterns aren&#8217;t the solution to every problem.
+Once you&#8217;ve found a pattern that appears to be a good match, make sure it has a set of consequences you can live with and study its effects on the rest of your design.
+Use patterns when you have a practical need to support change in a design today.</p>
+</li>
+<li>
+<p>KISS</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remember, always solve things in the simplest way you can. Other developers will appreciate and admire the simplicity of your design.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Design principles and patterns give us some useful tools that help us create software that is truly more flexible and resilient to change.</p>
+</li>
+<li>
+<p>Refactoring time is pattern time.</p>
+</li>
+<li>
+<p>If you don&#8217;t need to use a pattern now, don&#8217;t use it now.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_memento_pattern">Memento pattern</h3>
 <div class="dlist">
 <dl>
@@ -705,35 +1149,14 @@ Allows for changing the behavior during runtime.</pre>
 <div class="content">
 <img src="images/memento_pattern.png" alt="memento pattern">
 </div>
-<div class="title">Figure 5. Pattern UML</div>
+<div class="title">Figure 19. Pattern UML</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/memento_pattern_example.png" alt="memento pattern example">
 </div>
-<div class="title">Figure 6. Pattern Example</div>
+<div class="title">Figure 20. Pattern Example</div>
 </div>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_s_o_l_i_d_principles">S.O.L.I.D Principles</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_srp_single_responsibility_principle">SRP - Single Responsibility Principle</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Definition</dt>
-<dd>
-<p>a class should only change for one reason only</p>
-</dd>
-<dt class="hdlist1">Example</dt>
-<dd>
-<p>Think of a restaurant. Every person has a specific role. The waiter is responsible for taking orders only. They don&#8217;t cook for you.
-Imagine a restaurant where the waiter takes your order, cooks for you, goes shopping and does the taxes. This is unmanageable.</p>
 </dd>
 </dl>
 </div>
@@ -743,7 +1166,7 @@ Imagine a restaurant where the waiter takes your order, cooks for you, goes shop
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-22 14:13:27 +0200
+Last updated 2020-05-24 23:24:44 +0200
 </div>
 </div>
 </body>
