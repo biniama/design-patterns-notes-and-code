@@ -533,7 +533,8 @@ Class and the Students still exist.</p>
 </li>
 <li>
 <p>Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&#8217;t exist
-separate to a House.</p>
+separate to a House.
+Source: <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/" class="bare">https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/</a></p>
 </li>
 </ul>
 </div>
@@ -854,7 +855,9 @@ updated automatically.</p>
 <div class="content">
 <pre>Design Principle - The Open-Closed Principle
 Classes should be open for extension but closed for modification.
-Ensures flexibility and maintainability because we can add new behavior without the risk of introducing bug in the existing code.</pre>
+Ensures flexibility, maintainability and robustness because we can add new behavior without the risk of introducing bug in the existing code.
+
+Whenever you want to add a functionality, you should create new classes and test those. Instead of changing existing code.</pre>
 </div>
 </div>
 </div>
@@ -1113,7 +1116,7 @@ Once you&#8217;ve found a pattern that appears to be a good match, make sure it 
 Use patterns when you have a practical need to support change in a design today.</p>
 </li>
 <li>
-<p>KISS</p>
+<p><strong>KISS</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1129,9 +1132,17 @@ Use patterns when you have a practical need to support change in a design today.
 <p>Refactoring time is pattern time.</p>
 </li>
 <li>
-<p>If you don&#8217;t need to use a pattern now, don&#8217;t use it now.</p>
+<p>If you don&#8217;t need to use a pattern now, don&#8217;t use it now. Otherwise, you end up with 'Design smell' in your project i.e. overly complicated design.</p>
 </li>
 </ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+Simplicity is the Ultimate Sophestication
+</blockquote>
+<div class="attribution">
+&#8212; Leonardo Da vinchi
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1161,12 +1172,39 @@ Use patterns when you have a practical need to support change in a design today.
 </dl>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_state_pattern">State Pattern</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Type</dt>
+<dd>
+<p>Behavioural</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/state_pattern_class_diagram.png" alt="state pattern class diagram">
+</div>
+<div class="title">Figure 21. Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/state_pattern_example.png" alt="state pattern example">
+</div>
+<div class="title">Figure 22. Example</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-24 23:24:44 +0200
+Last updated 2020-05-25 00:53:30 +0200
 </div>
 </div>
 </body>

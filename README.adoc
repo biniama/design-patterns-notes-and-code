@@ -177,7 +177,9 @@ image::images/observer_pattern_publisher_subscribers.png[]
 ----
 Design Principle - The Open-Closed Principle
 Classes should be open for extension but closed for modification.
-Ensures flexibility and maintainability because we can add new behavior without the risk of introducing bug in the existing code.
+Ensures flexibility, maintainability and robustness because we can add new behavior without the risk of introducing bug in the existing code.
+
+Whenever you want to add a functionality, you should create new classes and test those. Instead of changing existing code.
 ----
 
 === Decorator Pattern
@@ -294,12 +296,17 @@ image::images/factory_method_pattern_example.png[]
 * Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
 Once you've found a pattern that appears to be a good match, make sure it has a set of consequences you can live with and study its effects on the rest of your design.
 Use patterns when you have a practical need to support change in a design today.
-* KISS
+* *KISS*
 ** Remember, always solve things in the simplest way you can. Other developers will appreciate and admire the simplicity of your design.
 * Design principles and patterns give us some useful tools that help us create software that is truly more flexible and resilient to change.
 * Refactoring time is pattern time.
-* If you don't need to use a pattern now, don't use it now.
+* If you don't need to use a pattern now, don't use it now. Otherwise, you end up with 'Design smell' in your project i.e. overly complicated design.
 
+[quote, Leonardo Da vinchi]
+Simplicity is the Ultimate Sophistication
+
+[quote, Mosh]
+Don't abuse the design patterns!
 
 === Memento pattern
 Type:: Behavioural
@@ -308,3 +315,13 @@ Purpose:: Without violating encapsulation, capture and externalise an object's i
 image::images/memento_pattern.png[]
 .Pattern Example
 image::images/memento_pattern_example.png[]
+
+
+=== State Pattern
+Type:: Behavioural
+Definition:: Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+
+.Class Diagram
+image::images/state_pattern_class_diagram.png[]
+.Example
+image::images/state_pattern_example.png[]
