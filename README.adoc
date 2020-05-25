@@ -329,6 +329,24 @@ Start by creating a Simple Factory then iterate.
 . Open for extension, Closed for modification
 . Depend on Abstractions
 
+=== Abstract Factory Pattern
+Type:: Creational
+Definition:: Provide an interface *for creating families of related or dependent objects* without specifying their concrete classes.
+.Class Diagram
+image::images/abstract_factory_pattern_class_diagram.png[]
+.Example
+image::images/abstract_factory_pattern_example.png[]
+
+.When to use Abstract Factory Method?
+Imagine a scenario where you have a system that supports users with *different roles*.
+
+.Design Principles and Factory Method
+. Loosely coupled
+. Similar principles like the Factory Method Pattern:
+.. Encapsulate what varies
+.. Program to an interface, not an implementation
+.. Depend on Abstractions
+
 === Applying patterns
 * Design patterns can be powerful.
 * Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
