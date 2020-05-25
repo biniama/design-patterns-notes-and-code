@@ -47,8 +47,11 @@ Source: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-
 ====
 
 == Design Patterns
-Design patterns are general solutions to OO problems.
+Design patterns are general solutions to common OO problems.
+They are time-tested, reusable OO designs that solve many common design problems.
 It is an approach to thinking about software design that incorporate the experience of developers who have had similar problems.
+
+Goal:: To create object-oriented software that is more flexible, maintainable, extensible and reliable.
 
 .Benefits
 . Not reinventing the wheel
@@ -61,10 +64,29 @@ It is an approach to thinking about software design that incorporate the experie
 .. Shared vocabularies encourage more junior developers to get up to speed.
 
 === Design Principles vs Design Patterns
-Design Principles:: general guidelines on how to develop quality software.
+Design Principles:: general guidelines on how to develop quality software and avoid bad object-oriented design.
+A bad design is one that is too rigid and inflexible, or is hard to reuse.
 E.g. 'Encapsulate what varies'
 Design Patterns:: specific design solutions often named at solving common OO problems.
 E.g. The Strategy pattern, the Iterator pattern, the Factory pattern
+
+*Principles* are aimed at the *low level* of _how we put objects together_, while *patterns* are aimed at *larger problems*.
+Many design patterns are inspired by design principles.
+
+=== Design pattern categories
+In the Gang of Four catalog, patterns are categorized primarily by their purpose.
+Creational patterns:: relate to creating or instantiating objects. It provides a way to decouple the client, that is the part of the system instantiating
+and using the objects, from the objects it needs to instantiate.
+Behavioral patterns:: relate to how classes and objects interact.
+Structural patterns:: relate to how classes and objects are composed into larger structures.
+
+image::images/design_pattern_categories.png[]
+
+== Creational Patterns
+The goal of all Creational Patterns is to give us more flexibility in *how* we create objects, *what kinds of* objects get created, and *who's responsible* for creating them.
+
+Most of the patterns allow us to _abstract away the concrete types_ a client uses so that the client depends only on the abstraction, that is the interface,
+rather than the concrete types themselves. This makes adding new types and behaviors a lot easier and error-prone.
 
 === Problems with inheritance
 image::images/problems_with_inheritance.png[]
@@ -274,6 +296,7 @@ Definition:: The Factory Method pattern defines an interface for creating an obj
 lets a class *defer instantiation to subclasses*.
 
 ==== Simple Factory Pattern
+This is NOT a GoF pattern
 .Class Diagram
 image::images/simple_factory_pattern_class_diagram.png[]
 .Simple Factory Pattern Example
@@ -281,15 +304,30 @@ image::images/simple_factory_pattern_example.png[]
 .Simple Factory Pattern Code Example
 image::images/simple_factory_pattern_code_example.png[]
 When we see code like the above, we know that if requirements change, and we want to add new duck types, we're going to have to open up this code and change it
-and that violates the open closed principle.
+and that violates the *open closed principle*.
 We might also end up writing this same code in several places in this application, making the situation even worse.
 
 
 Simple Factory pattern allows us to *decouple* the process of creating objects from the clients that use those objects.
+Hence, we respect 'Encapsulate what varies principle.'
 
 ==== Factory Method
+.Class Diagram
+image::images/factory_method_pattern_class_diagram.png[]
 .Example
 image::images/factory_method_pattern_example.png[]
+.Practical Example
+image::images/factory_method_practical_example.png[]
+
+.When to use Factory Method?
+When we know we need to create a new concrete object, but we can't predict which kind of concrete object to make.
+Start by creating a Simple Factory then iterate.
+
+.Design Principles and Factory Method
+. Encapsulate what varies
+. Program to an interface, not an implementation
+. Open for extension, Closed for modification
+. Depend on Abstractions
 
 === Applying patterns
 * Design patterns can be powerful.
