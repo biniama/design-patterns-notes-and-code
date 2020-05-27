@@ -371,6 +371,45 @@ By creating a general interface, we are building in flexibility to the builders 
 .Design Principles and Builder Pattern
 The builder keeps our code open for extension by supporting a variety of concrete builders. And by using a common interface for the builders keeps the code in the client and the director closed for modification.
 
+=== Prototype Pattern
+Type:: Creational
+Definition:: Specify the kinds of objects to create using a prototypical instance, and create new objects by copying the prototype.
+
+A *Prototypical Instance* is an object we've created that will be used to make copies of itself to create new objects.
+
+.Why Prototype?
+* When we copy an existing object, we get the complex setup for free.
+* We don't need to know the _concrete class_ of the object we're creating
+* The client is independent of how an object is created because it's up to the object to make a copy of itself
+
+.Design Principles and Prototype Pattern
+Program to the interface, not the implementation principle
+so the client can refer to the existing prototype using an interface, ask the prototype to create a copy of itself, and get a new object back.
+
+.Use
+This can be handy in situations where you are creating objects on the fly, or based on user input, for instance.
+
+.Implementation
+. Use a built in method
+In Java, objects that implement the cloneable interface use a clone method to copy themselves.
+. Create a new instance of the class and then copy the properties of the prototype object into that new object.
+As long as what you return to the client is a new instance of that object type, the client doesn't need to know or care how that new instance is made.
+
+.Comparing Factory Method and Prototype Patterns
+In the Factory Method pattern, we have a parallel hierarchy of classes i.e. the Factory Hierarchy, and the Product Hierarchy. These two Hierarchy's mirror one another, because each Factory produces a different product.
+With Prototype pattern, we have no need for a parallel hierarchy because the type of object instance we get, is determined by the type of object we clone. This can be decided at run time, based on state.
+
+.Benefits of Prototype Pattern
+. Prototype is particularity helpful when we're creating objects that are complex, or expensive to create new.
+. Encapsulates object creation inside a prototypical instance object
+. Client depends on the prototype abstraction, and not the concrete types of the objects created from the prototype, or the details of how new objects of
+that type are created.
+. `Java`'s `Cloneable` interface allows objects to clone themselves with the `clone()` method.
+. JavaScript has direct support for object prototypes.
+In `JavaScript`, we can create new objects directly from other objects using `Object.create()` and copy properties from object to another using `Object
+.assign()`.
+Unlike `Java`, `JavaScript` uses prototypal inheritance meaning that all objects inherit directly from other objects.
+
 === Applying patterns
 * Design patterns can be powerful.
 * Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
