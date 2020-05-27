@@ -339,13 +339,37 @@ image::images/abstract_factory_pattern_example.png[]
 
 .When to use Abstract Factory Method?
 Imagine a scenario where you have a system that supports users with *different roles*.
+We *use* the abstract factory pattern whenever we have a system that must be independent of how its products are created and represented, and the system is configured with one of multiple families of products.
+If we decide the client should use a different family of products, all we have to do is *switch out which factory the client is using* to create the products and the new family of products is created for us.
 
-.Design Principles and Factory Method
+.Design Principles and Abstract Factory Pattern
 . Loosely coupled
 . Similar principles like the Factory Method Pattern:
 .. Encapsulate what varies
 .. Program to an interface, not an implementation
 .. Depend on Abstractions
+
+=== Builder Pattern
+Type:: Creational
+Definition:: Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+
+.Example
+image::images/builder_pattern_example.png[]
+
+That means we want to allow the client the flexibility to create different representations of the same kind of object.
+
+.Difference between Builder and Factory Pattern
+Factory Pattern:: Concerned with encapsulating the *decision* about what *type* of products to create.
+Builder Pattern:: Concerned with encapsulating the *complexities* of how we *build* an individual object.
+
+.Flexibility in configuration
+* The director uses a builder to build a product *step by step*. So, the builder interface must be flexible and general enough to support a variety of concrete
+builders and the products they make.
+By creating a general interface, we are building in flexibility to the builders we use.
+* Using builder gives us fine control over the construction process by splitting the process into steps and giving control of that process to the director.
+
+.Design Principles and Builder Pattern
+The builder keeps our code open for extension by supporting a variety of concrete builders. And by using a common interface for the builders keeps the code in the client and the director closed for modification.
 
 === Applying patterns
 * Design patterns can be powerful.
