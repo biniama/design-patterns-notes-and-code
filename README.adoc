@@ -38,7 +38,7 @@ public class Shape {
 
 [NOTE]
 ====
-.Aggergation vs Composition
+.Aggregation vs Composition
 - Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Parent
 Class and the Students still exist.
 - Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don't exist
@@ -72,6 +72,13 @@ E.g. The Strategy pattern, the Iterator pattern, the Factory pattern
 
 *Principles* are aimed at the *low level* of _how we put objects together_, while *patterns* are aimed at *larger problems*.
 Many design patterns are inspired by design principles.
+
+Design principles are general guidelines that you can use with any aspect of your object-oriented design.
+Principles guide your class structure and the relationships and really to steer you away from rigid, fragile and immobile designs.
+
+Design patterns are aimed at solutions to commonly occurring problems. These are proven solutions that have been found, over time, to solve those
+problems, rather than abstract guidelines. Design patterns provide actual designs in the form of class diagrams that can then be adapted to your own specific
+solution.
 
 === Design pattern categories
 In the Gang of Four catalog, patterns are categorized primarily by their purpose.
@@ -460,3 +467,6 @@ Definition:: Allow an object to alter its behavior when its internal state chang
 image::images/state_pattern_class_diagram.png[]
 .Example
 image::images/state_pattern_example.png[]
+
+
+include::DesignPrinciples_README.adoc
