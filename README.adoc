@@ -410,6 +410,22 @@ In `JavaScript`, we can create new objects directly from other objects using `Ob
 .assign()`.
 Unlike `Java`, `JavaScript` uses prototypal inheritance meaning that all objects inherit directly from other objects.
 
+== Singleton Pattern
+Type:: Creational
+Definition:: Ensure a class only has one instance, and provide a global point of access to it.
+
+.Class Diagram
+image::images/singleton_pattern_class_diagram.png
+
+NOTE:: One caveat with Singleton.
+The implementation of this pattern is somewhat language-dependent. When you're implementing a Singleton, think about how to make your code thread safe so you
+don't have to worry about multiple threads creating more than one instance of the Singleton.
+
+.Design Principles and Singleton Pattern
+. Encapsulate what varies
+. Single Responsibility Principle
+. NOT loosely coupled - common criticism of Singleton
+
 === Applying patterns
 * Design patterns can be powerful.
 * Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
