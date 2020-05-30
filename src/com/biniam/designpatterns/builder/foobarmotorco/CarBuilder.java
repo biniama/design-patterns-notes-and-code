@@ -20,28 +20,33 @@ public class CarBuilder extends VehicleBuilder {
 	}
 
 	@Override
-	public void buildBody() {
+	public CarBuilder buildBody() {
 		System.out.println("[Car] building body");
+		return this;
 	}
 
 	@Override
-	public void buildBoot() {
+	public CarBuilder buildBoot() {
 		System.out.println("[Car] building boot");
+		return this;
 	}
 
 	@Override
-	public void buildChassis() {
+	public CarBuilder buildChassis() {
 		System.out.println("[Car] building chassis");
+		return this;
 	}
 
 	@Override
-	public void buildPassengerArea() {
+	public CarBuilder buildPassengerArea() {
 		System.out.println("[Car] building passenger area");
+		return this;
 	}
 
 	@Override
-	public void buildWindows() {
+	public CarBuilder buildWindows() {
 		System.out.println("[Car] building windows");
+		return this;
 	}
 
 	@Override

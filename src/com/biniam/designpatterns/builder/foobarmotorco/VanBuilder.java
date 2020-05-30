@@ -18,23 +18,27 @@ public class VanBuilder extends VehicleBuilder {
 	AbstractVan vanInProgress;
 
 	@Override
-	public void buildBody() {
+	public VanBuilder buildBody() {
 		System.out.println("[Van] building body");
+		return this;
 	}
 
 	@Override
-	public void buildChassis() {
+	public VanBuilder buildChassis() {
 		System.out.println("[Van] building chassis");
+		return this;
 	}
 
 	@Override
-	public void buildReinforcedStorageArea() {
+	public VanBuilder buildReinforcedStorageArea() {
 		System.out.println("[Van] building reinforced storage area");
+		return this;
 	}
 
 	@Override
-	public void buildWindows() {
+	public VanBuilder buildWindows() {
 		System.out.println("[Van] building windows");
+		return this;
 	}
 
 	@Override

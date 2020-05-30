@@ -10,11 +10,11 @@ public class CarDirector extends VehicleDirector {
 	// Chaining
 	@Override
 	public Vehicle build(VehicleBuilder builder) {
-		builder.buildChassis();
-		builder.buildBody();
-		builder.buildPassengerArea();
-		builder.buildBoot();
-		builder.buildWindows();
-		return builder.getVehicle();
+		return builder.buildChassis()
+		.buildBody()
+		.buildPassengerArea()
+		.buildBoot()
+		.buildWindows()
+		.getVehicle();
 	}
 }

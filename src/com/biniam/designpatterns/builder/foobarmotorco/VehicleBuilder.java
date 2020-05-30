@@ -7,17 +7,29 @@ import com.biniam.foobarmotorco.domain.Vehicle;
  */
 public abstract class VehicleBuilder {
 
-	public void buildBody() {}
+	public VehicleBuilder buildBody() {
+		return this;
+	}
 
-	public void buildBoot() {}
+	public VehicleBuilder buildBoot() {
+		return this;
+	}
 
-	public void buildChassis() {}
+	public VehicleBuilder buildChassis() {
+		return this;
+	}
 
-	public void buildPassengerArea() {}
+	public VehicleBuilder buildPassengerArea() {
+		return this;
+	}
 
-	public void buildReinforcedStorageArea() {}
+	public VehicleBuilder buildReinforcedStorageArea() {
+		return this;
+	}
 
-	public void buildWindows() {}
+	public VehicleBuilder buildWindows() {
+		return this;
+	}
 
 	// returns the finished vehicle
 	public abstract Vehicle getVehicle();

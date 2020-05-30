@@ -9,10 +9,10 @@ public class VanDirector extends VehicleDirector {
 
 	@Override
 	public Vehicle build(VehicleBuilder builder) {
-		builder.buildChassis();
-		builder.buildBody();
-		builder.buildReinforcedStorageArea();
-		builder.buildWindows();
-		return builder.getVehicle();
+		return builder.buildChassis()
+				.buildBody()
+				.buildReinforcedStorageArea()
+				.buildWindows()
+				.getVehicle();
 	}
 }
