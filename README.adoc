@@ -417,10 +417,11 @@ so the client can refer to the existing prototype using an interface, ask the pr
 
 .Use
 This can be handy in situations where you are creating objects on the fly, or based on user input, for instance.
+Used to improve object instantiation time.
 
 .Implementation
 . Use a built in method
-In Java, objects that implement the cloneable interface use a clone method to copy themselves.
+In Java, objects that implement the `*Cloneable*` interface use a `clone()` method to copy themselves.
 . Create a new instance of the class and then copy the properties of the prototype object into that new object.
 As long as what you return to the client is a new instance of that object type, the client doesn't need to know or care how that new instance is made.
 

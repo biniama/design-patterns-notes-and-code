@@ -37,4 +37,17 @@ public abstract class AbstractVehicle implements Vehicle {
 	public String toString() {
 		return "AbstractVehicle{" + "engine=" + engine + ", color=" + color + '}';
 	}
+
+	// Used in Prototype Pattern
+	@Override
+	public Object clone() {
+		Object obj =  null;
+		try {
+			obj = super.clone();
+		} catch(CloneNotSupportedException e) {
+			// Should not happen
+			e.printStackTrace();
+		}
+		return obj;
+	}
 }
