@@ -335,11 +335,18 @@ image::images/factory_method_practical_example.png[]
 When we know we need to create a new concrete object, but we can't predict which kind of concrete object to make.
 Start by creating a Simple Factory then iterate.
 
+Subclasses are given possibility of what object to create.
+
 .Design Principles and Factory Method
 . Encapsulate what varies
 . Program to an interface, not an implementation
 . Open for extension, Closed for modification
 . Depend on Abstractions
+
+.Difference between Factory Method and Abstract Factory Pattern
+Factory Method:: Uses *inheritance* and relies on a subclass to handle the desired object instantiation. It is *Class Creational pattern*.
+Abstract Factory Pattern:: a class delegates the responsibility of object instantiation to another object (client) via *Composition*. It is *Object Creational
+pattern*
 
 === Abstract Factory Pattern
 Type:: Creational
@@ -389,6 +396,9 @@ By creating a general interface, we are building in flexibility to the builders 
 
 .Design Principles and Builder Pattern
 The builder keeps our code open for extension by supporting a variety of concrete builders. And by using a common interface for the builders keeps the code in the client and the director closed for modification.
+
+.When to use
+. When you want to construct objects in multiple ways
 
 === Prototype Pattern
 Type:: Creational
