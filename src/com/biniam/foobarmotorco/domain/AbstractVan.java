@@ -5,18 +5,11 @@ package com.biniam.foobarmotorco.domain;
  */
 public abstract class AbstractVan extends AbstractVehicle {
 
-	@Override
-	public void getEngine() {
-		super.getEngine();
+	public AbstractVan(Engine engine, Color color) {
+		super(engine, color);
 	}
 
-	@Override
-	public void getColor() {
-		super.getColor();
-	}
-
-	@Override
-	public void paint() {
-		super.paint();
+	public AbstractVan(Engine engine) {
+		super(engine);
 	}
 }

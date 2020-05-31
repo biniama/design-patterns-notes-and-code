@@ -4,6 +4,8 @@ import com.biniam.foobarmotorco.domain.AbstractCar;
 import com.biniam.foobarmotorco.domain.AbstractVan;
 import com.biniam.foobarmotorco.domain.BoxVan;
 import com.biniam.foobarmotorco.domain.Saloon;
+import com.biniam.foobarmotorco.domain.StandardEngine;
+import com.biniam.foobarmotorco.domain.TurboEngine;
 import com.biniam.foobarmotorco.domain.Vehicle;
 
 /**
@@ -13,7 +15,7 @@ public class ClientMain {
 
 	public static void main(String[] args) {
 		// Create a car instance
-		AbstractCar saloon = new Saloon();
+		AbstractCar saloon = new Saloon(new StandardEngine(1300));
 
 		// Create builder for the car
 		VehicleBuilder carBuilder = new CarBuilder(saloon);
@@ -27,7 +29,7 @@ public class ClientMain {
 		System.out.println(builtCar);
 
 		// If you want to change change the type of the Vehicle, just pass the new builder to the director
-		AbstractVan boxVan = new BoxVan();
+		AbstractVan boxVan = new BoxVan(new TurboEngine(2500));
 		VehicleBuilder vanBuilder = new VanBuilder();
 		VehicleDirector vanDirector = new VanDirector();
 

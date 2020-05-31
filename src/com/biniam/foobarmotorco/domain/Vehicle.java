@@ -5,9 +5,11 @@ package com.biniam.foobarmotorco.domain;
  */
 public interface Vehicle {
 
-	void getEngine();
+	public enum Color {UNPAINTED, BLUE, BLACK, GREEN, RED, SILVER, WHITE, YELLOW }
 
-	void getColor();
+	Engine getEngine();
 
-	void paint();
+	Color getColor();
+
+	void paint(Color color);
 }

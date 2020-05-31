@@ -50,8 +50,13 @@ Source: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-
 Design patterns are general solutions to common OO problems.
 They are time-tested, reusable OO designs that solve many common design problems.
 It is an approach to thinking about software design that incorporate the experience of developers who have had similar problems.
+A Design pattern is _named_ solution to a _problem_ in a _context_.
 
 Goal:: To create object-oriented software that is more flexible, maintainable, extensible and reliable.
+
+Design Patterns should be programming language and domain _independent_.
+Often, architectures and platforms are built on a set of design patterns.
+E.g. Java Spring Framework uses Proxy, Adapter, Singleton, Facade and Template Method patterns.
 
 .Benefits
 . Not reinventing the wheel
@@ -356,6 +361,13 @@ If we decide the client should use a different family of products, all we have t
 .. Program to an interface, not an implementation
 .. Depend on Abstractions
 
+.Advantage
+. Identical code for all sub-classes in the client.
+. Only requirement is to create the correct factory.
+
+.Disadvantage
+. Adding new features reqquires changes in many classes.
+
 === Builder Pattern
 Type:: Creational
 Definition:: Separate the construction of a complex object from its representation so that the same construction process can create different representations.
@@ -468,5 +480,3 @@ image::images/state_pattern_class_diagram.png[]
 .Example
 image::images/state_pattern_example.png[]
 
-
-include::DesignPrinciples_README.adoc
