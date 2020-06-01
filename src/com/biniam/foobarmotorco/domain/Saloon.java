@@ -12,4 +12,10 @@ public class Saloon extends AbstractCar {
 	public Saloon(Engine engine) {
 		super(engine);
 	}
+
+	// Added to demonstrate Decorator Pattern
+	@Override
+	public int getPrice() {
+		return 6000;
+	}
 }

@@ -11,4 +11,10 @@ public class BoxVan extends AbstractVan {
 	public BoxVan(Engine engine) {
 		super(engine);
 	}
+
+	// Added to demonstrate Decorator Pattern
+	@Override
+	public int getPrice() {
+		return 10000;
+	}
 }
