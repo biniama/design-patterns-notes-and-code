@@ -510,3 +510,14 @@ Definition:: Allow an object to alter its behavior when its internal state chang
 image::images/state_pattern_class_diagram.png[]
 .Example
 image::images/state_pattern_example.png[]
+
+
+=== Bridge Pattern
+Type:: Structural
+Definition:: Decouple an abstraction from its implementation so that each may vary independently.
+
+.Example
+image::images/bridge_pattern_example_foobarmotorco.png[]
+
+.Use
+Very useful when you have 'extensions' or new behaviors that extend the abstract class and extend it by defining new methods.
