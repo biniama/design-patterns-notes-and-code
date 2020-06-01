@@ -547,9 +547,23 @@ Definition:: Use sharing to support large numbers of fine-grained objects effici
 The Flyweight pattern allows you to reference a multitude of objects of the same type and having the same state, by only instantiating the minimum number of
 actual objects needed.
 
-This is typically done by allocating a *pool* pf objects which can be *shared* and this is determined by a *Flyweight Factory* class.
+This is typically done by allocating a *pool* of objects which can be *shared* and this is determined by a *Flyweight Factory* class.
 
 .Use
 . When you want to avoid creating same objects again and again.
 . Good to reuse same object
 . Memory efficient.
+
+
+=== Proxy Pattern
+Type:: Structural
+Definition:: Provide a surrogate or placeholder for another object _to control access_ to it.
+
+The Proxy pattern provides a `stand in` object until time-consuming resources are complete, allowing the rest of your application to load.
+Proxy pattern is useful if you cannot modify the original source for some reason.
+
+.How can you 'force' client programs to use the Proxy class instead of the normal class for object instantiation?
+One approach is to make the constructors of the instantiable classes (E.g. StandardEngine and TurboEngine) package-private (i.e. using no access modifier);
+then the provided Proxy (e.g. EngineProxy) is in the same package, it will be able to instantiate them but outside objects won't.
+
+It is also common to have a 'factory' class to make instantiation simpler. E.g. by providing a `createStandardEngine()` method.
