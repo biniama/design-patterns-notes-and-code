@@ -521,3 +521,9 @@ image::images/bridge_pattern_example_foobarmotorco.png[]
 
 .Use
 Very useful when you have 'extensions' or new behaviors that extend the abstract class and extend it by defining new methods.
+
+
+=== Composite Pattern
+Type:: Structural
+Definition:: Compose Objects into tree structures to represent part-whole hierarchies. _Composite_ lets clients treat individual objects and compositions of
+objects uniformly.
