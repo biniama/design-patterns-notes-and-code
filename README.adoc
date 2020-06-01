@@ -533,3 +533,23 @@ objects uniformly.
 Type:: Structural
 Definition:: Provides a unified interface to a set of interfaces in a subsystem. _Facade_ defines a higher-level interface that makes the subsystem easier to
 use.
+
+Client programs only need to invoke the method on the instance of the Facade.
+Therefore, the Client needs no knowledge of what should be done and what other objects are created.
+In a special circumstance, the individual methods are still available for calling as required.
+If a new process is needed, then only the Facade needs to change. Hence, details are hidden from the client.
+
+
+=== Flyweight Pattern
+Type:: Structural
+Definition:: Use sharing to support large numbers of fine-grained objects efficiently.
+
+The Flyweight pattern allows you to reference a multitude of objects of the same type and having the same state, by only instantiating the minimum number of
+actual objects needed.
+
+This is typically done by allocating a *pool* pf objects which can be *shared* and this is determined by a *Flyweight Factory* class.
+
+.Use
+. When you want to avoid creating same objects again and again.
+. Good to reuse same object
+. Memory efficient.
