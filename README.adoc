@@ -169,8 +169,8 @@ Allows for changing the behavior during runtime.
 
 === Adapter Pattern
 Type:: Structural
-Definition:: The Adapter Pattern converts the interface of a class into another interface clients expect. It allows classes to work together that couldn't
-otherwise because of incompatible interfaces.
+Definition:: Convert the interface of a class into another interface clients expect. _Adapter_ lets classes work together that couldn't otherwise because of
+incompatible interfaces.
 
 .Definition
 image::images/adapter_pattern.png[]
@@ -178,6 +178,8 @@ image::images/adapter_pattern.png[]
 image::images/adapter_pattern_class_diagram.png[]
 .Example
 image::images/adapter_pattern_example.png[]
+.Foo Bar Motor Co. Example
+image::images/adapter_pattern_example_foobarmotorco.png[]
 
 .Adapters use Composition
 . The client is composed with the adapter class, and the Adapter is composed with the adaptee.
@@ -186,6 +188,24 @@ image::images/adapter_pattern_example.png[]
 . The advantage of the Adapter Pattern is you can add an adapter easily without having to modify the adaptee at all, and only modify the client to add the
 adapter.
 . Useful when working with Vendor classes which we can't modify.
+
+[source, Generic Example]
+public class ObjectAdapter extends ClassAdaptingTo {
+    private ClassAdaptingFrom fromObject;
+
+    public ObjectAdapter(ClassAdaptingFrom fromObject) {
+        this.fromObject = fromObject;
+    }
+
+    // Overidden method
+    public void methodInToClass(){
+        fromObject.methodInFromClass();
+    }
+}
+
+.Use
+. When you have incompatible class, create an Adapter and make it 'adapt'
+. Good to implement _Anti-Corruption Layer_ and _Hexagonal/Orion Architecture_
 
 ----
 Design Principle - Loose Coupling
@@ -490,4 +510,3 @@ Definition:: Allow an object to alter its behavior when its internal state chang
 image::images/state_pattern_class_diagram.png[]
 .Example
 image::images/state_pattern_example.png[]
-

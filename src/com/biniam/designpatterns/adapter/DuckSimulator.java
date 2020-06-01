@@ -10,10 +10,10 @@ public class DuckSimulator {
 		Turkey turkey = new WildTurkey();
 
 		// Adapt the turkey to Duck using TurkeyAdapter
-		Duck turkeyAdoptedToDuck = new TurkeyAdapter(turkey);
+		Duck turkeyAdaptedToDuck = new TurkeyAdapter(turkey);
 
 		// Now, you can call the Duck methods on a Turkey.
-		testDuck(turkeyAdoptedToDuck);
+		testDuck(turkeyAdaptedToDuck);
 
 		// second example
 		Drone drone = new SuperDrone();
