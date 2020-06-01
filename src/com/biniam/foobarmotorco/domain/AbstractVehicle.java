@@ -50,4 +50,26 @@ public abstract class AbstractVehicle implements Vehicle {
 		}
 		return obj;
 	}
+
+	// Used in Facade Pattern
+	@Override
+	public void cleanInterior() {
+		System.out.println("Cleaning interior");
+	}
+
+	@Override
+	public void cleanExterior() {
+		System.out.println("Cleaning exterior");
+	}
+
+	@Override
+	public void polishWindows() {
+		System.out.println("Polishing windows");
+	}
+
+	@Override
+	public void takeForTestDrive() {
+		System.out.println("Taking for test drive");
+	}
+	// END OF Used in Facade Pattern
 }

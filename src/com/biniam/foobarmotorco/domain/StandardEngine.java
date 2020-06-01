@@ -7,6 +7,6 @@ public class StandardEngine extends AbstractEngine {
 
 	// not turbo charged
 	public StandardEngine(int size) {
-		super(size, true);
+		super(size, false);
 	}
 }

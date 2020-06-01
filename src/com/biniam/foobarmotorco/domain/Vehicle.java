@@ -21,4 +21,10 @@ public interface Vehicle extends Cloneable {
 	// An approach to improve instantiation time is to utilize Java's clone() method by extending Cloneable class.
 	// The Object class in Java defines clone() as protected.
 	public Object clone();
+
+	// Used in Facade Pattern
+	void cleanInterior();
+	void cleanExterior();
+	void polishWindows();
+	void takeForTestDrive();
 }

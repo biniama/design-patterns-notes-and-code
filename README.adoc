@@ -527,3 +527,9 @@ Very useful when you have 'extensions' or new behaviors that extend the abstract
 Type:: Structural
 Definition:: Compose Objects into tree structures to represent part-whole hierarchies. _Composite_ lets clients treat individual objects and compositions of
 objects uniformly.
+
+
+=== Facade Pattern
+Type:: Structural
+Definition:: Provides a unified interface to a set of interfaces in a subsystem. _Facade_ defines a higher-level interface that makes the subsystem easier to
+use.
