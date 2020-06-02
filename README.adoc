@@ -567,3 +567,12 @@ One approach is to make the constructors of the instantiable classes (E.g. Stand
 then the provided Proxy (e.g. EngineProxy) is in the same package, it will be able to instantiate them but outside objects won't.
 
 It is also common to have a 'factory' class to make instantiation simpler. E.g. by providing a `createStandardEngine()` method.
+
+
+=== Chain of Responsibility Pattern
+Type:: Behavioural
+Definition:: Avoid coupling the sender of the request to its receiver by giving more than one object a change to handle the request. Chain the receiving
+objects and pass the request along the chain until an object handles it.
+
+This pattern allows us to define a separate handler objects that all conform to a `Handler` interface. This enables us to keep each handler independent and
+loosely-coupled.
