@@ -285,15 +285,32 @@ Aggregate objects collect Objects. E.g. Arrays, Java Collection classes like Arr
 . Iteration code now works with any kind of aggregate object.
 
 .Using built-in iterators
-- Java offers a built-in `Iterator` interface, `Java.util.Iterator`.
+- Java offers a built-in `Iterator` interface, `Java.util.Iterator` which is an implementation of the `Iterator` pattern.
+[source, java]
+----
+public interface Iterator<E> {
+    public boolean hasNext(); <1>
+    public E next();    <2>
+    public void remove();   <3>
+----
+<1> returns true if another item exists
+<2> returns the next item
+<3> removes the last returned item
+
+.More about Java.util.Iterator
 - The `java.util.Iterator` interface acts both as an interface that your own iterator classes can implement as well as the type of the Java collection classes
 built-in iterators.
 - Classes like ArrayList, Vector and LinkedList all have an iterator method that returns a ready built iterator with a type `java.util.Iterator`.
 - Java arrays *don't* have built-in iterators.
+- For lists, a sub-class of `Iterator` called `ListIterator` provides some additional methods.
 
-.Built-in iterators in languages and used in statements while hiding the Iterator pattern and make it easy
+.Java's Iterable Interface
+`java.lang.Iterable` can be implemented by classes that define a method called `iterator()` that returns an `Iterator` object.
+
+.Other Built-in Iterators
+- Built-in iterators in languages and used in statements while hiding the Iterator pattern and make it easy
 - Java's *enhanced for* statement - used for Collections and arrays
-[source, java]
+[source]
 ----
     for (Animal a: animals) {
         a.makeSound()
