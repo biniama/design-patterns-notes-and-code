@@ -154,5 +154,5 @@ image::images/dependency_inversion_principle_model.png[]
 .Dependency Inversion Principle Example
 image::images/dependency_inversion_principle_example.png[]
 
-=== References
+== References
 https://dzone.com/articles/the-5-solid-principles-explained

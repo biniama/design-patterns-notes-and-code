@@ -2,6 +2,8 @@
 Biniam Asnake
 1.0.0
 :icons: font
+:toc:
+:sectnums:
 
 == Object Oriented Programming Concepts
 Interface:: a contract that specifies the functionalities/capabilities a class should provide
@@ -68,7 +70,7 @@ E.g. Java Spring Framework uses Proxy, Adapter, Singleton, Facade and Template M
 .. Shared vocabularies can turbo-charge your development team - go faster and less misunderstanding
 .. Shared vocabularies encourage more junior developers to get up to speed.
 
-=== Design Principles vs Design Patterns
+== Design Principles vs Design Patterns
 Design Principles:: general guidelines on how to develop quality software and avoid bad object-oriented design.
 A bad design is one that is too rigid and inflexible, or is hard to reuse.
 E.g. 'Encapsulate what varies'
@@ -85,7 +87,7 @@ Design patterns are aimed at solutions to commonly occurring problems. These are
 problems, rather than abstract guidelines. Design patterns provide actual designs in the form of class diagrams that can then be adapted to your own specific
 solution.
 
-=== Design pattern categories
+== Design pattern categories
 In the Gang of Four catalog, patterns are categorized primarily by their purpose.
 Creational patterns:: relate to creating or instantiating objects. It provides a way to decouple the client, that is the part of the system instantiating
 and using the objects, from the objects it needs to instantiate.
@@ -144,6 +146,7 @@ e.g.
     [source] Duck duck = new MallardDuck();
 ----
 
+== GoF Design Patterns
 === Strategy Pattern
 Type:: Behavioural
 Definition:: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This lets the algorithm vary
@@ -282,9 +285,10 @@ Aggregate objects collect Objects. E.g. Arrays, Java Collection classes like Arr
 . Iteration code now works with any kind of aggregate object.
 
 .Using built-in iterators
-- Java offers a built-in iterator interface, Java.util.iterator.
-- The java.util.iterator interface acts both as an interface that your own iterator classes can implement as well as the type of the Java collection classes built-in iterators.
-- Classes like ArrayList, Vector and LinkedList all have an iterator method that returns a ready built iterator with a type java.util.iterator.
+- Java offers a built-in `Iterator` interface, `Java.util.Iterator`.
+- The `java.util.Iterator` interface acts both as an interface that your own iterator classes can implement as well as the type of the Java collection classes
+built-in iterators.
+- Classes like ArrayList, Vector and LinkedList all have an iterator method that returns a ready built iterator with a type `java.util.Iterator`.
 - Java arrays *don't* have built-in iterators.
 
 .Built-in iterators in languages and used in statements while hiding the Iterator pattern and make it easy
@@ -460,7 +464,7 @@ In `JavaScript`, we can create new objects directly from other objects using `Ob
 .assign()`.
 Unlike `Java`, `JavaScript` uses prototypal inheritance meaning that all objects inherit directly from other objects.
 
-== Singleton Pattern
+=== Singleton Pattern
 Type:: Creational
 Definition:: Ensure a class only has one instance, and provide a global point of access to it.
 
@@ -475,23 +479,6 @@ don't have to worry about multiple threads creating more than one instance of th
 . Encapsulate what varies
 . Single Responsibility Principle
 . NOT loosely coupled - common criticism of Singleton
-
-=== Applying patterns
-* Design patterns can be powerful.
-* Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
-Once you've found a pattern that appears to be a good match, make sure it has a set of consequences you can live with and study its effects on the rest of your design.
-Use patterns when you have a practical need to support change in a design today.
-* *KISS*
-** Remember, always solve things in the simplest way you can. Other developers will appreciate and admire the simplicity of your design.
-* Design principles and patterns give us some useful tools that help us create software that is truly more flexible and resilient to change.
-* Refactoring time is pattern time.
-* If you don't need to use a pattern now, don't use it now. Otherwise, you end up with 'Design smell' in your project i.e. overly complicated design.
-
-[quote, Leonardo Da vinchi]
-Simplicity is the Ultimate Sophistication
-
-[quote, Mosh]
-Don't abuse the design patterns!
 
 === Memento pattern
 Type:: Behavioural
@@ -594,3 +581,23 @@ E.g. in Java, this is implemented through the `Action` interface's `actionPerfor
 GUIs often define both a menubar and a toolbar icon that perform the same action, where a single command object handles the action performed.
 
 . Another aspect is the provision of an `undo` mechanism by storing the state of the object prior to performing the code in the `execute()` method.
+
+
+== Applying patterns
+* Design patterns can be powerful.
+* Don't think of patterns as a magic bullet. Patterns aren't the solution to every problem.
+Once you've found a pattern that appears to be a good match, make sure it has a set of consequences you can live with and study its effects on the rest of your design.
+Use patterns when you have a practical need to support change in a design today.
+* *KISS*
+** Remember, always solve things in the simplest way you can. Other developers will appreciate and admire the simplicity of your design.
+* Design principles and patterns give us some useful tools that help us create software that is truly more flexible and resilient to change.
+* Refactoring time is pattern time.
+* If you don't need to use a pattern now, don't use it now. Otherwise, you end up with 'Design smell' in your project i.e. overly complicated design.
+
+[quote, Leonardo Da vinchi]
+Simplicity is the Ultimate Sophistication
+
+[quote, Mosh]
+Don't abuse the design patterns!
+
+include::DesignPrinciples_README.adoc[]
