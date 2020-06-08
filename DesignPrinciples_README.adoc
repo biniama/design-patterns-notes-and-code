@@ -154,5 +154,9 @@ image::images/dependency_inversion_principle_model.png[]
 .Dependency Inversion Principle Example
 image::images/dependency_inversion_principle_example.png[]
 
+.Dependency Inversion Explained
+image::images/dependency_inversion_explained.png[]
+Source: [Book] "Become an Awesome Software Architect" : Book 1 : Foundation 2019 by Anatoly Volkhover
+
 == References
 https://dzone.com/articles/the-5-solid-principles-explained
