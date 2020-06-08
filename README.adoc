@@ -576,3 +576,21 @@ objects and pass the request along the chain until an object handles it.
 
 This pattern allows us to define a separate handler objects that all conform to a `Handler` interface. This enables us to keep each handler independent and
 loosely-coupled.
+
+
+=== Command Pattern
+Type:: Behavioural
+Definition:: Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support
+undoable operations.
+
+The Command pattern allows us to *uncouple* an object making a request from the object that receives the request and performs the action, by means of a
+'middle-man' object known as a 'command object'.
+
+.Typical uses of the Command Pattern
+. One of the most frequent uses of is in *UI toolkits*. These are pre-built components like graphical buttons and menu items that cannot possibly know ehat
+needs to be done when clicked, because that is always specific to your application.
+E.g. in Java, this is implemented through the `Action` interface's `actionPerformed()`
+
+GUIs often define both a menubar and a toolbar icon that perform the same action, where a single command object handles the action performed.
+
+. Another aspect is the provision of an `undo` mechanism by storing the state of the object prior to performing the code in the `execute()` method.
